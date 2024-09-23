@@ -1,11 +1,42 @@
 // src/UserDetail.js
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { users } from './users';
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 
 const UserDetail = () => {
   const { userId } = useParams();
-  const user = users.find(user => user.id === parseInt(userId));
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/users/${userId}`
+        );
+        if (!response.ok) {
+          throw new Error("User not found");
+        }
+        const data = await response.json();
+        setUser(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [userId]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
 
   if (!user) {
     return <h2>User not found</h2>;
