@@ -1,7 +1,7 @@
 // src/UserDetail.js
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { users } from './user';
+import { users } from './users';
 
 const UserDetail = () => {
   const { userId } = useParams();
