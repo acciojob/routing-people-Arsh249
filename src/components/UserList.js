@@ -1,7 +1,7 @@
 // src/UserList.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { users } from './users';
+import { users } from './user';
 
 const UserList = () => {
   return (
