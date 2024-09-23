@@ -1,4 +1,5 @@
 import React from "react";
+import 'regenerator-runtime/runtime';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";  // Use `Routes` instead of `Switch`
 import UserList from "./UserList";
 import UserDetail from "./UserDetail";
