@@ -13,7 +13,7 @@ const UserDetail = () => {
 
   return (
     <div>
-      <h1>{user.name}</h1>
+      <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>
       <p>Website: {user.website}</p>

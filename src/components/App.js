@@ -9,7 +9,7 @@ const App = () => {
       <Routes>
         {/* Use element prop and pass components as JSX */}
         <Route path="/" element={<UserList />} />
-        <Route path="/user/:userId" element={<UserDetail />} />
+        <Route path="/users/:userId" element={<UserDetail />} />
       </Routes>
     </Router>
   );
